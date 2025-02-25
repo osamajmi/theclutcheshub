@@ -136,9 +136,12 @@ img.logo {
 
 .multi-column__item {
     flex: 0 0 auto;
-    width: 175px; /* Adjust size as needed */
+    /* width: 175px; */ /* Adjust size as needed */
     scroll-snap-align: center;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 27px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background: #fff;
@@ -275,7 +278,7 @@ font-weight: bold  !important;
 .multi-column {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 20px;
     overflow: hidden; /* Default: Desktop me scroll nahi hoga */
 }
@@ -286,7 +289,7 @@ font-weight: bold  !important;
 
 .multi-column__item img {
     width: 100%;
-    height: auto;
+    height: 108px;
 }
 .multi-column__item {
     display: flex;

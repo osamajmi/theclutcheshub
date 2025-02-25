@@ -63,4 +63,9 @@
     }
 }
 
-@medai
+@media(min-width:1024px){
+    .card{
+        margin-top: 60px !important;
+        max-width: 530px !important;
+    }
+}

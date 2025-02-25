@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+            <h2 class="text-center text-primary mb-4">Customer Login</h2>
+            
+            <button class="btn btn-primary w-100 mb-2 d-flex align-items-center justify-content-between">
+                Sign in with Facebook <span class="bi bi-facebook"></span>
+            </button>
+            <button class="btn btn-danger w-100 mb-2 d-flex align-items-center justify-content-between">
+                Sign in with Google <span class="bi bi-google"></span>
+            </button>
+            <button class="btn btn-info w-100 mb-3 d-flex align-items-center justify-content-between">
+                Sign in with X <span class="bi bi-twitter"></span>
+            </button>
+            
+            <p class="text-center">Or Continue with your email address</p>
+            <form>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="E-mail" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="text-decoration-none">Forgot your password?</a>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 mt-3">LOGIN</button>
+            </form>
+            
+            <p class="text-center mt-3">Don't have an account? <a href="#" class="text-primary">Sign up</a></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -491,5 +491,10 @@ ul.list-unstyled li a {
     height: 100vh;
 }
 
+.navbar{
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
 /* footer end */
 /* Home page css end */

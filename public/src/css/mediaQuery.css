@@ -77,7 +77,7 @@
         transition: opacity 0.3sease;
     }
     .product-actionsIcon{
-        left: 38%;
+        left: 38% !important;
     }
  }
  

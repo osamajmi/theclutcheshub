@@ -76,6 +76,9 @@
         width: 95%;
         transition: opacity 0.3sease;
     }
+    .product-actionsIcon{
+        left: 38%;
+    }
  }
  
  @media(min-width:1024px){

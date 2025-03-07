@@ -1,63 +1,774 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Card</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Image Gallery</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../public/src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <style>
-        .product-card {
+        .btn-outline-Class {
+    border: 1px solid var(--primary-color);
+    padding: 4px;
+    background: #fff;
+    border-radius: 3px;
+    color: var(--primary-color);
+}
+span.ms-2.bi.bi-heart{
+    color: var(--primary-color);
+}
+        .breadcrumb {
+            background-color: transparent;
+            font-size: 14px;
+        }
+        .breadcrumb-item a {
+            text-decoration: none;
+            color: #666;
+        }
+        .breadcrumb-item a:hover {
+            color: #000;
+        }
+        .gallery {
+            display: flex;
+            /* width: 100%; */
+            margin: auto;
+            gap: 20px;
+            margin-left: 50px;
+            /* align-items: center; */
+        }
+        .thumbnails-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: relative;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+        }
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: 400px;
+            gap: 10px;
             padding: 10px;
-            text-align: center;
+            scrollbar-width: none;
+            position: relative;
         }
-        .product-card img {
-            width: 100%;
-            transition: opacity 0.3s ease;
+        .thumbnails::-webkit-scrollbar {
+            display: none;
         }
-        .product-card .hover-image {
+        .thumbnails img {
+            width: 120px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        .thumbnails img.active {
+            border: 2px solid purple;
+        }
+        .main-image img {
+            width:100%;
+            height: 425px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px gray;
+            margin-top: 20px;
+        }
+        .arrow-btn {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-        }
-        .product-card:hover .hover-image {
-            opacity: 1;
-        }
-        .product-card .product-actions {
-            position: absolute;
-            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            z-index: 10;
         }
-        .product-card:hover .product-actions {
-            opacity: 1;
+        .up-btn { top: -25px; }
+        .down-btn { bottom: -25px; }
+        .productDetails h1{
+            font-family: Avenir !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 28px !important;
+    color: #212121;
+    text-transform: uppercase;
+    padding-top: 0;
+    text-align: start;
         }
+        .productDetails {
+    margin-left: 20px;
+}
+
+.productDetails .sku{
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 26px;
+    color: #212121;
+}
+.price-box-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.price-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.price-regular {
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.price-old {
+    color: #999;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.tax-info {
+    font-size: 14px;
+    color: #555;
+    margin-left: 10px;
+}
+
+.unit_price_box {
+    font-size: 14px;
+    color: #777;
+}
+
+.hidden {
+    display: none;
+}
+
+.qty-custom {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.option-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.pro-qty {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+}
+
+.quantity-button {
+    background: transparent;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #777;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.quantity-button:hover {
+    color: black;
+}
+
+.qtybtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[name="quantity"] {
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border: none;
+    background: transparent;
+    outline: none;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+html, body {
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.gallery {
+    margin: auto;
+    max-width: 100%;
+}   .coupon-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+             margin-bottom: 10px;
+        }
+        .coupon-code {
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 120px;
+        }
+        .divider {
+            width: 1px;
+            background: #ddd;
+            height: 50px;
+            margin: 0 15px;
+        }
+        .more-offers a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+        .offcanvas {
+            width: 400px;
+        }
+        .offcanvas-header {
+            border-bottom: 1px solid #ddd;
+        }
+        .offcanvas-body {
+            background: #f9f9f9;
+        }
+        .coupon-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .coupon-card .code {
+            background: #f3f3f3;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            min-width: 100px;
+        }
+         .feature-box {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .feature-item {
+            flex: 1;
+            min-width: 120px;
+        }
+        .feature-item img {
+            max-width: 50px;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            font-size: 14px;
+            margin: 0;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid black;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        .tab.active {
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            background: #fcfaff;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .content.active {
+            display: block;
+        }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .pro-qty {
+        padding: 5px;
+    }
+
+    .quantity-button {
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    input[name="quantity"] {
+        width: 40px;
+        font-size: 14px;
+    }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .price-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tax-info {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 992px) { /* Tablet Screen */
+    .productDetails{
+        margin-left: 50px  !important;
+    }
+    button.btn-Class.w-75.w-md-100.mt-5,.wishListbtn{
+        width: 93% !important;
+        /* margin-left: 50px !important; */
+    }
+    .coupon-box,.feature-box{
+       max-width: 93%;
+    }
+    
+  }
+
+  @media (max-width:430px) {
+
+    body{
+        
+    }
+
+    .mdres{
+        display: none;
+    }
+    
+  }
+  
+  .mobile-carousel {
+            display: none !important;
+        }
+
+        @media (max-width: 430px) {
+            .mobile-carousel {
+                display: block !important;
+                margin: 20px auto;
+                max-width: 90%;
+            }
+
+            .owl-item {
+                transition: transform 0.3s ease-in-out;
+            }
+
+          
+            .owl-item.center .Procard {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+          
+            .Procard {
+                transition: transform 0.3s ease-in-out;
+                opacity: 0.6;
+            }
+            .productDetails{
+                margin-left: 20px !important;
+            }
+        }
+
+        .Procard {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
     </style>
 </head>
+
 <body>
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <div class="product-card">
-                    <img src="image1.jpg" class="main-image" alt="Product Image">
-                    <img src="image2.jpg" class="hover-image" alt="Hover Image">
-                    <h5 class="mt-2">Product Name</h5>
-                    <p><strong>₹1,299</strong> <del>₹5,995</del></p>
-                    <div class="product-actions">
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                        <button class="btn btn-outline-danger btn-sm"><i class="fas fa-heart"></i></button>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Collections</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Festive Finesse Party Clutch</li>
+        </ol>
+    </nav>
+
+  
+
+
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="owl-carousel mobile-carousel">
+                <div class="item">
+                    <div class="Procard">
+                        <img src="../public/image/main1.webp" alt="">
+                   </div>
+                 </div>
+                 <div class="item">
+                    <div class="Procard">
+                        <img src="../public/image/main2.webp" alt="">
+                   </div>
+                 </div>
+            </div>
+            <div class="col-lg-2 col-4 col-sm-4 mdres" >
+                <div class="thumbnails-container">
+                    <span class="bi bi-chevron-up up-btn"></span>
+                    <div class="thumbnails">
+                        <img src="../public/image/productThum1.jpg" class="thumbnail active" data-src="../public/image/main5.webp">
+                        <img src="../public/image/productThum2.webp" class="thumbnail" data-src="../public/image/main4.webp">
+                        <img src="../public/image/productThum3.avif" class="thumbnail" data-src="../public/image/main3.webp">
+                        <img src="../public/image/productThum4.avif" class="thumbnail" data-src="../public/image/main2.webp">
+                        <img src="../public/image/productThum5.avif" class="thumbnail" data-src="../public/image/main1.webp">
                     </div>
+                    <span class="bi bi-chevron-down down-btn"></span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-8 col-sm-8 mdres">
+                <div class="main-image">
+                    <img src="../public/image/main5.webp" id="mainImage">
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 col-sm-12">
+                <div class="productDetails  ms-5 mt-3">
+                    <h1>Festive Finesse Party Clutch</h1>
+       
+                    <span class="sku">SKU :</span> <span class="sku">452</span>
+       
+                    <div class="price-box-1">
+                       <div class="price-box">
+                         
+                         <span id="ProductPrice" class="price-regular">₹2,449</span><del><span id="ComparePrice" class="price-old">  ₹11,995</span></del>
+                           <span class="tax-info">Incl. of all taxes</span></div>
+                     
+                       <!-- For Unit Price  -->
+                       <small class="unit_price_box caption hidden">
+                         <dd>
+                           <span id="product__unit_price"></span>
+                           <span aria-hidden="true"></span>
+                           <span id="product__unit_price_value">
+                           </span>
+                         </dd>
+                       </small>
+                       <!-- For Unit Price  -->
+                     </div>
+       
+                     <div class="qty-custom">
+                       <h6 class="option-title quantity-selector">Quantity</h6>
+                       <div class="quantity quantity-selector">
+                           <div class="pro-qty">
+                               <div class="quantity-button quantity-down dec qtybtn">-</div>
+                               <input type="number" min="1" step="1" value="1" name="quantity">
+                               <div class="quantity-button quantity-up inc qtybtn">+</div>
+                           </div>
+                       </div>
+                   </div>
+       
+                   <button class="btn-Class w-75 w-md-100 mt-5">BUY NOW</button>
+                   <div class="d-flex justify-content-between w-75 gap-2 wishListbtn">
+                    <button class="btn-outline-Class w-50 mt-2">BUY NOW</button>
+                    <button class="btn-outline-Class w-50 mt-2">WishList <span class="ms-2 bi bi-heart"></span></button>
+                   </div>
+                    
+              
+                        <!-- <div class="form-check">
+                          <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" >
+                             gift box
+                          </label>
+                        </div> -->
+
+                        <div class="container mt-5">
+                            <div class="coupon-box">
+                                <div class="coupon-code">
+                                    <p>Use Code</p>
+                                    <h4>FIRST10</h4>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="offer-details">
+                                    <p>First Order Discount</p>
+                                </div>
+                                <div class="more-offers">
+                                    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offerCanvas">More</a><br>
+                                    <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offerCanvas">Offers+</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <!-- Offcanvas Section -->
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offerCanvas">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title">Coupons</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div class="coupon-card">
+                                    <div class="code">
+                                        <p>Use Code</p>
+                                        <h5>PEORA30</h5>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <p>30% off on orders above ₹3499</p>
+                                </div>
+                    
+                                <div class="coupon-card">
+                                    <div class="code">
+                                        <p>Use Code</p>
+                                        <h5>SAVE300</h5>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <p>₹300 off on orders above ₹1999</p>
+                                </div>
+                    
+                                <div class="coupon-card">
+                                    <div class="code">
+                                        <p>Use Code</p>
+                                        <h5>SAVE500</h5>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <p>₹500 off on orders above ₹2499</p>
+                                </div>
+                    
+                                <div class="coupon-card">
+                                    <div class="code">
+                                        <p>Use Code</p>
+                                        <h5>SAVE750</h5>
+                                    </div>
+                                    <div class="divider"></div>
+                                    <p>₹750 off on orders above ₹3499</p>
+                                </div>
+                            </div>
+                        </div>
+                  
+                        <div class="container mt-3 mb-2 ">
+                            <div class="feature-box">
+                                <div class="feature-item">
+                                    <img src="./trust.svg" alt="Cash on Delivery">
+                                    <p>Cash/ Pay on Delivery</p>
+                                </div>
+                                <div class="feature-item">
+                                    <img src="./order.svg" alt="Easy Returns">
+                                    <p>15-Day Easy Returns</p>
+                                </div>
+                                <div class="feature-item">
+                                    <img src="./truck.svg" alt="Free Shipping">
+                                    <p>Free Shipping above ₹499</p>
+                                </div>
+                                <div class="feature-item">
+                                    <img src="./warranty.svg" alt="Warranty">
+                                    <p>6 Months Warranty</p>
+                                </div>
+                                <div class="feature-item">
+                                    <img src="./made_in_india (1).avif" alt="Made in India" style="max-width: 70px;">
+                                    <p>Made in India Products</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+        </div>
+ 
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="tabs">
+                    <div class="tab active" onclick="showTab('description')">Description</div>
+                    <div class="tab" onclick="showTab('jewellery-care')">Jewellery care</div>
+                </div>
+                <div id="description" class="content active">
+                    <p><strong>Product Name:</strong> Festive Finesse Party Clutch</p>
+                    <p><strong>Gender:</strong> Women</p>
+                    <p><strong>Colour:</strong> Gold</p>
+                    <p><strong>Material:</strong> Fabric</p>
+                    <p><strong>In the Box:</strong> 1 Clutch Bag</p>
+                    <p><strong>Dimensions:</strong> L - 8.7 Inch x W - 1.18 Inch x H - 4.13 Inch</p>
+                </div>
+                <div id="jewellery-care" class="content">
+                    <ol>
+                        <li>Wipe your jewellery with a soft cloth after every use.</li>
+                        <li>Always store your jewellery in a flat box to avoid accidental scratches.</li>
+                        <li>Keep sprays and perfumes away from your jewellery.</li>
+                        <li>Do not soak your jewellery in water.</li>
+                        <li>Clean your jewellery using a soft brush, dipped in jewellery cleaning solution only.</li>
+                    </ol>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- JavaScript for Image Switching and Scroll -->
+    <script>
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.getElementById('mainImage');
+        const thumbnailContainer = document.querySelector('.thumbnails');
+        const upButton = document.querySelector('.up-btn');
+        const downButton = document.querySelector('.down-btn');
+
+        // Change main image on thumbnail click
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function () {
+                mainImage.src = this.dataset.src;
+                thumbnails.forEach(img => img.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scroll Functionality for Thumbnail List
+        let scrollStep = 200; // Scroll Speed
+
+        upButton.addEventListener('click', () => {
+            thumbnailContainer.scrollBy({ top: -scrollStep, behavior: 'smooth' });
+        });
+
+        downButton.addEventListener('click', () => {
+            thumbnailContainer.scrollBy({ top: scrollStep, behavior: 'smooth' });
+        });
+
+        // // Mouse Scroll for Thumbnail List
+        // thumbnailContainer.addEventListener('wheel', (event) => {
+        //     event.preventDefault();
+        //     thumbnailContainer.scrollBy({ top: event.deltaY, behavior: 'smooth' });
+        // });
+        thumbnailContainer.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    thumbnailContainer.scrollTop += event.deltaY;
+});
+
+
+        // Update Active Thumbnail Based on Scroll Position
+        function updateActiveThumbnail() {
+            let thumbnailsArr = Array.from(thumbnails);
+            let firstVisible = thumbnailsArr.find(thumb => {
+                let rect = thumb.getBoundingClientRect();
+                let containerRect = thumbnailContainer.getBoundingClientRect();
+                return rect.top >= containerRect.top && rect.bottom <= containerRect.bottom;
+            });
+
+            if (firstVisible) {
+                thumbnails.forEach(img => img.classList.remove('active'));
+                firstVisible.classList.add('active');
+                mainImage.src = firstVisible.dataset.src;
+            }
+        }
+
+        // Listen for scrolling
+        thumbnailContainer.addEventListener('scroll', updateActiveThumbnail);
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const decrementBtn = document.querySelector(".quantity-down");
+    const incrementBtn = document.querySelector(".quantity-up");
+    const quantityInput = document.querySelector("input[name='quantity']");
+
+    decrementBtn.addEventListener("click", function () {
+        let value = parseInt(quantityInput.value);
+        if (value > 1) {
+            quantityInput.value = value - 1;
+        }
+    });
+
+    incrementBtn.addEventListener("click", function () {
+        let value = parseInt(quantityInput.value);
+        quantityInput.value = value + 1;
+    });
+
+    // Prevent entering non-numeric values
+    quantityInput.addEventListener("input", function () {
+        if (this.value < 1 || isNaN(this.value)) {
+            this.value = 1;
+        }
+    });
+});
+
+function showTab(tabId) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+            
+            document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+      <script>
+        $(document).ready(function(){
+            $(".mobile-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                center: true,
+                nav: false,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1.5
+                    }
+                }
+            });
+        });
+    </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -90,13 +90,55 @@
                         <span class="bi bi-search fs-4"></span>
                      </div>
                      <div class="cartIcon">
-                    <a href="./page/Login.html">     <span class="bi bi-person fs-4"></span></a>
+                       <span class="bi bi-person fs-4"  data-bs-toggle="modal" data-bs-target="#loginModal"></span>
                          <span class="bi bi-heart m-3 fs-4" data-bs-toggle = "offcanvas" data-bs-target="#wishlist"  ></span>
                          <span class="bi bi-cart fs-4"  data-bs-toggle = "offcanvas" data-bs-target="#Cart"   ></span>
                      </div>
                    </div>
                 </div>
         </div>
+
+        <!-- login panel -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Welcome to <img src="../public/image/logo.jpg" width="100"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Enter your log in details</p>
+                  
+                  <!-- Phone Number Input -->
+                  <div class="phone-input">
+                      <select>
+                          <option>+91</option>
+                          <option>+1</option>
+                          <option>+44</option>
+                      </select>
+                      <input type="text" placeholder="Phone number">
+                  </div>
+          
+                  <!-- Terms and Conditions -->
+                  <p class="terms">
+                      This site is protected by reCAPTCHA and the Google 
+                      <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply. <br>
+                      On Clicking Continue, I agree to <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
+                  </p>
+          
+                  <!-- Continue Button -->
+                  <button class="btn-Class w-100">Continue</button>
+          
+                  <!-- Other Login Options -->
+                  <div class="btn-options">
+                      <button><img src="https://img.icons8.com/ios-glyphs/20/000000/new-post.png"/> Email</button>
+                      <button><img src="https://img.icons8.com/ios-glyphs/20/4CAF50/whatsapp.png"/> WhatsApp</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- login panel -->
         <div class="container-fluid d-sm-block d-md-block d-lg-none d-xl-none">
             <div class="input-group border border-dark m-3 me-4 rounded-1 w-100" style="max-width: 97%;">
                 <span class="input-group-text bg-white border-0">

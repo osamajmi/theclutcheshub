@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owl Carousel for Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+        /* Owl Carousel सिर्फ मोबाइल पर दिखेगा */
+        .mobile-carousel {
+            display: none !important;
+        }
+
+        @media (max-width: 430px) {
+            .mobile-carousel {
+                display: block !important;
+                margin: 20px auto;
+                max-width: 90%;
+            }
+
+            .owl-item {
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Center Item को 100% Width देना */
+            .owl-item.center .card {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            /* Left & Right Items को 25% Effect देना */
+            .card {
+                transition: transform 0.3s ease-in-out;
+                opacity: 0.6;
+            }
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Owl Carousel Wrapper -->
+    <div class="owl-carousel mobile-carousel">
+        <div class="item"><div class="card">
+            <img src="" alt="">
+        </div></div>
+        <div class="item"><div class="card">
+            
+        </div></div>
+        <div class="item"><div class="card">Card 3</div></div>
+        <div class="item"><div class="card">Card 4</div></div>
+        <div class="item"><div class="card">Card 5</div></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(".mobile-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                center: true,
+                nav: false,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1.5
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

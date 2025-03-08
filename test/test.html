@@ -3,81 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owl Carousel for Mobile</title>
+    <title>Owl Carousel Product Slider</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <style>
-        /* Owl Carousel सिर्फ मोबाइल पर दिखेगा */
-        .mobile-carousel {
-            display: none !important;
-        }
-
-        @media (max-width: 430px) {
-            .mobile-carousel {
-                display: block !important;
-                margin: 20px auto;
-                max-width: 90%;
-            }
-
-            .owl-item {
-                transition: transform 0.3s ease-in-out;
-            }
-
-            /* Center Item को 100% Width देना */
-            .owl-item.center .card {
-                transform: scale(1.2);
-                opacity: 1;
-            }
-
-            /* Left & Right Items को 25% Effect देना */
-            .card {
-                transition: transform 0.3s ease-in-out;
-                opacity: 0.6;
-            }
-        }
-
-        .card {
-            background: #fff;
+    <link rel="stylesheet" href="../public/src/css/style.css">
+    <!-- <style>
+        .container {
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
+        }
+        .mainCard {
+            background: #fff;
+            padding: 15px;
             text-align: center;
             border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-    </style>
+        .Mainproduct-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .Mainproduct-card img {
+            width: 100%;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .hover-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+        .Mainproduct-card:hover .hover-image {
+            opacity: 1;
+        }
+        .btn-cart {
+            background: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .iconsHeart {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: red;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .pricePro {
+            font-size: 16px;
+            color: #333;
+        }
+        .pricePro del {
+            color: grey;
+            font-size: 14px;
+        }
+    </style> -->
 </head>
 <body>
-
-    <!-- Owl Carousel Wrapper -->
-    <div class="owl-carousel mobile-carousel">
-        <div class="item"><div class="card">
-            <img src="" alt="">
-        </div></div>
-        <div class="item"><div class="card">
-            
-        </div></div>
-        <div class="item"><div class="card">Card 3</div></div>
-        <div class="item"><div class="card">Card 4</div></div>
-        <div class="item"><div class="card">Card 5</div></div>
+    <div class="container mt-4">
+        <h3 class="fw-bold text-dark text-center">
+            <span style="color: #ff9800;">•</span> Related Products  <span style="color: #ff9800;">•</span>
+        </h3>
+        <div class="owl-carousel product-carousel">
+            <div class="item">
+                <div class="mainCard">
+                    <div class="Mainproduct-card">
+                        <img src="../image/pro3.webp" class="main-image" alt="Product Image">
+                        <img src="../image/pro2.webp" class="hover-image" alt="Hover Image">
+                        <div class="product-actions">
+                            <a href="./productDetail.html"><button class="btn-cart">Add to Cart</button></a>    
+                        </div>
+                        <div class="product-actions product-actionsIcon">
+                            <button class="iconsHeart"><i class="fas fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <h5 class="mt-2 proName">Fiesta Finery Party Clutch</h5>
+                    <p class="pricePro"><strong>₹1,299</strong> <del>₹5,995</del></p>
+                </div>
+            </div>
+            <!-- Duplicate the above div.item structure for more products -->
+        </div>
     </div>
 
     <script>
-        $(document).ready(function(){
-            $(".mobile-carousel").owlCarousel({
-                loop: true,
-                margin: 10,
-                center: true,
-                nav: false,
-                dots: false,
-                responsive: {
-                    0: {
-                        items: 1.5
-                    }
-                }
-            });
+    $(document).ready(function(){
+        $(".product-carousel").owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+                0:{ items:2 },
+                600:{ items:3 },
+                1000:{ items:6 }
+            }
         });
+    });
     </script>
-
 </body>
 </html>

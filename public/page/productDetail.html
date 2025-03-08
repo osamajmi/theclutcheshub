@@ -64,7 +64,7 @@
                     <div>
                       
                         <a class="navbar-brand" href="/">
-                            <img src="../image/logo.jpg" alt="logo" width="130" height="100"
+                            <img src="../image/logo.png" alt="logo" width="130" height="100"
                                 class="logo">
                         </a> 
                     </div>  
@@ -204,7 +204,7 @@
             </div>
         </div>
         <div class="col-lg-6 col-12 col-sm-12">
-            <div class="productDetails  ms-5 mt-3">
+            <div class="productDetails p-2 mt-3">
                 <h1>Festive Finesse Party Clutch</h1>
    
                 <span class="sku">SKU :</span> <span class="sku">452</span>
@@ -239,7 +239,7 @@
                </div>
    
                <button class="btn-Class w-75 w-md-100 mt-5">BUY NOW</button>
-               <div class="d-flex justify-content-between w-75 gap-2 wishListbtn">
+               <div class="d-flex justify-content-between w-75 w-md-100 gap-2 wishListbtn">
                 <button class="btn-outline-Class w-50 mt-2">BUY NOW</button>
                 <button class="btn-outline-Class w-50 mt-2">WishList <span class="ms-2 bi bi-heart"></span></button>
                </div>
@@ -314,7 +314,7 @@
                         </div>
                     </div>
               
-                    <div class="container mt-3 mb-2 ">
+                    <div class=" mt-3 mb-2 d-flex">
                         <div class="feature-box">
                             <div class="feature-item">
                                 <img src="../image/trust.svg" alt="Cash on Delivery">
@@ -378,7 +378,33 @@
 
 <!-- ======================================================================================================= -->
 
+<!-- related Products  -->
 
+
+<div class="container mt-4">
+    <h3 class="fw-bold text-dark text-center">
+        <span style="color: #ff9800;">•</span> Related Products  <span style="color: #ff9800;">•</span>
+    </h3>
+    <div class="owl-carousel product-carousel mt-3 p-2">
+        <div class="item m-3">
+            <div class="mainCard">
+                <div class="Mainproduct-card">
+                    <img src="../image/pro3.webp" class="main-image" alt="Product Image">
+                    <img src="../image/pro2.webp" class="hover-image" alt="Hover Image">
+                    <div class="product-actions">
+                        <a href="./productDetail.html"><button class="btn-cart">Add to Cart</button></a>    
+                    </div>
+                    <div class="product-actions product-actionsIcon">
+                        <button class="iconsHeart"><i class="fas fa-heart"></i></button>
+                    </div>
+                </div>
+                <h5 class="mt-2 proName">Fiesta Finery Party Clutch</h5>
+                <p class="pricePro"><strong>₹1,299</strong> <del>₹5,995</del></p>
+            </div>
+        </div>
+        <!-- Duplicate the above div.item structure for more products -->
+    </div>
+</div>
 
 
 
@@ -404,7 +430,7 @@
 <!-- widget -->
 
 <div class="widget-container">
-    <img src="./image/gift-icon.png" alt="">
+    <img src="../image/gift-icon.png" alt="">
 </div>
 <div class="widget-containerchat">
     <!-- <img src="./public/image/gift-icon.png" alt=""> -->
@@ -602,6 +628,23 @@ function showTab(tabId) {
             });
         });
     </script>
+     <script>
+        $(document).ready(function(){
+            $(".product-carousel").owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                responsive:{
+                    0:{ items:2 },
+                    600:{ items:3 },
+                    1000:{ items:5 }
+                }
+            });
+        });
+        </script>
 </body>
 
 </html>

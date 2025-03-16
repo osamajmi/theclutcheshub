@@ -3,109 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owl Carousel Product Slider</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="../public/src/css/style.css">
-    <!-- <style>
-        .container {
-            max-width: 1200px;
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .cart-container {
+            max-width: 800px;
             margin: auto;
+            background: white;
             padding: 20px;
-        }
-        .mainCard {
-            background: #fff;
-            padding: 15px;
-            text-align: center;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        .Mainproduct-card {
-            position: relative;
+        .cart-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .cart-item img {
+            width: 80px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #a14892;
+        }
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             overflow: hidden;
         }
-        .Mainproduct-card img {
-            width: 100%;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .hover-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-        .Mainproduct-card:hover .hover-image {
-            opacity: 1;
-        }
-        .btn-cart {
-            background: #ff6600;
+        .quantity-box button {
+            background: #a14892;
             color: white;
             border: none;
-            padding: 10px;
-            cursor: pointer;
-            margin-top: 10px;
-            width: 100%;
-            border-radius: 5px;
+            padding: 5px 10px;
         }
-        .iconsHeart {
-            background: none;
+        .checkout-btn {
+            background: #a14892;
+            color: white;
             border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .accordion-button {
+            background-color: #1f4a63 !important;
+            color: white !important;
+        }
+        .offer-box {
+            background: #f5e6d7;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .total-amount {
             font-size: 20px;
-            color: red;
-            cursor: pointer;
-            margin-top: 5px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 10px;
         }
-        .pricePro {
-            font-size: 16px;
-            color: #333;
-        }
-        .pricePro del {
-            color: grey;
-            font-size: 14px;
-        }
-    </style> -->
+    </style>
 </head>
 <body>
-    <div class="container mt-4">
-        <h3 class="fw-bold text-dark text-center">
-            <span style="color: #ff9800;">•</span> Related Products  <span style="color: #ff9800;">•</span>
-        </h3>
-        <div class="owl-carousel product-carousel">
-            <div class="item">
-                <div class="mainCard">
-                    <div class="Mainproduct-card">
-                        <img src="../image/pro3.webp" class="main-image" alt="Product Image">
-                        <img src="../image/pro2.webp" class="hover-image" alt="Hover Image">
-                        <div class="product-actions">
-                            <a href="./productDetail.html"><button class="btn-cart">Add to Cart</button></a>    
-                        </div>
-                        <div class="product-actions product-actionsIcon">
-                            <button class="iconsHeart"><i class="fas fa-heart"></i></button>
-                        </div>
+
+<div class="cart-container mt-5">
+    <h4 class="mb-3">Shopping Cart</h4>
+
+    <!-- Available Offers Section -->
+    <div class="accordion" id="offerAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#offerCollapse">
+                    Available Offers
+                </button>
+            </h2>
+            <div id="offerCollapse" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <div class="offer-box">
+                        <h5>Last Few Hours - Women's Day Sale <br> <strong>BOGO Sale</strong></h5>
+                        <p>Add 2 Products in cart to avail the offer.</p>
+                        <ul>
+                            <li>Slings BOGO</li>
+                            <li>Wallet BOGO</li>
+                            <li>Offer cannot be combined with other discounts.</li>
+                        </ul>
                     </div>
-                    <h5 class="mt-2 proName">Fiesta Finery Party Clutch</h5>
-                    <p class="pricePro"><strong>₹1,299</strong> <del>₹5,995</del></p>
                 </div>
             </div>
-            <!-- Duplicate the above div.item structure for more products -->
         </div>
     </div>
 
-    <script>
-    $(document).ready(function(){
-        $(".product-carousel").owlCarousel({
-            loop:true,
-            margin:10,
-            nav:true,
-            responsive:{
-                0:{ items:2 },
-                600:{ items:3 },
-                1000:{ items:6 }
+    <!-- Product 1 -->
+    <div class="cart-item">
+        <img src="https://via.placeholder.com/80" alt="Product">
+        <div class="flex-grow-1">
+            <h5>FloMotif Classic Zipper Wallet</h5>
+            <div class="price">₹<span class="unit-price">1099</span>.00</div>
+        </div>
+        <div class="quantity-box">
+            <button class="decrease">-</button>
+            <input type="text" class="form-control text-center quantity" value="1" style="width: 40px; border: none;">
+            <button class="increase">+</button>
+        </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="cart-item">
+        <img src="https://via.placeholder.com/80" alt="Product">
+        <div class="flex-grow-1">
+            <h5>Lattice Lace Women's Office Bag</h5>
+            <div class="price">₹<span class="unit-price">1698.90</span></div>
+        </div>
+        <div class="quantity-box">
+            <button class="decrease">-</button>
+            <input type="text" class="form-control text-center quantity" value="1" style="width: 40px; border: none;">
+            <button class="increase">+</button>
+        </div>
+    </div>
+
+    <!-- Total Amount Section -->
+    <div class="total-amount">Total: ₹<span id="totalAmount">2797.90</span></div>
+
+    <!-- Checkout Button -->
+    <button class="checkout-btn mt-3">Proceed to Checkout</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll(".cart-item").forEach((item) => {
+            let price = parseFloat(item.querySelector(".unit-price").textContent);
+            let quantity = parseInt(item.querySelector(".quantity").value);
+            total += price * quantity;
+        });
+        document.getElementById("totalAmount").textContent = total.toFixed(2);
+    }
+
+    document.querySelectorAll(".increase").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            let input = this.previousElementSibling;
+            input.value = parseInt(input.value) + 1;
+            updateTotal();
+        });
+    });
+
+    document.querySelectorAll(".decrease").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            let input = this.nextElementSibling;
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+                updateTotal();
             }
         });
     });
-    </script>
+
+    window.onload = updateTotal;
+</script>
+
 </body>
 </html>

@@ -155,11 +155,82 @@
     <!-- Cart  -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="Cart" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-         
+            <h4 class="">Shopping Cart</h4>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-         
+        <div class="offcanvas-body" style="padding: 0px !important;">
+            <div class="cart-container">
+               
+            
+                <!-- Available Offers Section -->
+             
+            
+                <!-- Product 1 -->
+                <div class="cart-item">
+                    <img src="../public/image/pro2.webp" alt="Product">
+                    <div class="flex-grow-1">
+                        <h5>FloMotif Classic Zipper Wallet</h5>
+                        <div class="price_ince">
+                            <div class="price">₹<span class="unit-price">1698.90</span></div>
+                            <div class="quantity-box">
+                                <button class="decrease">-</button>
+                                <input type="text" class="form-control text-center quantity" value="1" style="width: 40px; border: none;">
+                                <button class="increase">+</button>
+                            </div>
+                           </div>
+                    </div> 
+                   
+                
+                </div>
+            
+                <!-- Product 2 -->
+                <div class="cart-item">
+                    <img src="../public/image/pro1.webp" alt="Product">
+                    <div class="flex-grow-1">
+                        <h5>Lattice Lace Women's Office Bag</h5>
+                       <div class="price_ince">
+                        <div class="price">₹<span class="unit-price">1698.90</span></div>
+                        <div class="quantity-box">
+                            <button class="decrease">-</button>
+                            <input type="text" class="form-control text-center quantity" value="1" style="width: 40px; border: none;">
+                            <button class="increase">+</button>
+                        </div>
+                       </div>
+                    </div>
+                    
+                </div>
+            
+                <div class="accordion" id="offerAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#offerCollapse">
+                                Available Offers
+                            </button>
+                        </h2>
+                        <div id="offerCollapse" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="offer-box">
+                                    <h5>Last Few Hours - Women's Day Sale <br> <strong>BOGO Sale</strong></h5>
+                                    <p>Add 2 Products in cart to avail the offer.</p>
+                                    <ul>
+                                        <li>Slings BOGO</li>
+                                        <li>Wallet BOGO</li>
+                                        <li>Offer cannot be combined with other discounts.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            </div>
+          
+        </div>
+        <div class="offcanvas-footer">
+            <div class="total-amount"><span>Total:</span><span id="totalAmount"> ₹2797.90</span></div>
+        
+            <!-- Checkout Button -->
+            <button class="checkout-btn mt-3">Proceed to Checkout</button>
         </div>
     </div>
     <!-- Cart  -->
@@ -167,11 +238,40 @@
     <!-- wishList -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="wishlist" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-         
+         <h4>Wishlist</h4>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-         
+            <div class="wishlist-card card mt-2">
+                <img src="../public/image/pro1.webp" alt="Product Image" height="100px">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lattice Lace Women's Office Bag</h5>
+                    <p class="card-date">16 Mar 2025</p>
+                    <p class="card-price">₹1,699.00</p>
+                    <div class="btn-group w-100" role="group">
+                        <button class="btn btn-primary cart-btn">ADD TO CART</button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="wishlist-card card mt-2">
+                <img src="../public/image/pro1.webp" alt="Product Image" height="100px">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lattice Lace Women's Office Bag</h5>
+                    <p class="card-date">16 Mar 2025</p>
+                    <p class="card-price">₹1,699.00</p>
+                    <div class="btn-group w-100" role="group">
+                        <button class="btn btn-primary cart-btn">ADD TO CART</button>
+                        <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="text-center mt-3 position-absolute bottom-0 ms-3">
+                <span class="footer-actions">ADD ALL TO CART</span> | 
+                <span class="footer-actions">REMOVE ALL FROM WISHLIST</span>
+            </div>
         </div>
     </div>
     <!-- wishlist end -->
@@ -388,9 +488,9 @@
                 
                 <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" mediatype="video" class="svelte-jk0m5r" jsonkey="LQpQ74Z2fP" issafari="false" isimagemedia="false" style="border-radius: 2px; object-fit: cover; object-position: center top; z-index: 1; border: 0px solid rgb(255, 255, 255); width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4"></video>
               
-                <div class="vidImg position-absolute">
+                <!-- <div class="vidImg position-absolute">
                     <img src="../public/image/vidImg1.avif" alt="" width="100px" height="50px" class="img-fluid">
-                </div>
+                </div> -->
             </div>
             <div class="product-card">
                 
@@ -962,6 +1062,37 @@
             var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
             myModal.show(); 
         });
+    </script>
+    <script>
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll(".cart-item").forEach((item) => {
+                let price = parseFloat(item.querySelector(".unit-price").textContent);
+                let quantity = parseInt(item.querySelector(".quantity").value);
+                total += price * quantity;
+            });
+            document.getElementById("totalAmount").textContent = total.toFixed(2);
+        }
+    
+        document.querySelectorAll(".increase").forEach((btn) => {
+            btn.addEventListener("click", function () {
+                let input = this.previousElementSibling;
+                input.value = parseInt(input.value) + 1;
+                updateTotal();
+            });
+        });
+    
+        document.querySelectorAll(".decrease").forEach((btn) => {
+            btn.addEventListener("click", function () {
+                let input = this.nextElementSibling;
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                    updateTotal();
+                }
+            });
+        });
+    
+        window.onload = updateTotal;
     </script>
 </body>
 

@@ -14,192 +14,665 @@
     <link rel="stylesheet" href="./src/css/mediaQuery.css">
 
     <title>Home Page </title>
+  <!-- Custom CSS for Offcanvas -->
+<!-- Custom CSS for Offcanvas -->
+<style>
+    /* Custom Offcanvas */
+    .custom-offcanvas {
+        background-color: white; /* White background */
+    }
+
+    .custom-offcanvas-header {
+        border-bottom: 1px solid #e9ecef; /* Light border below header */
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .custom-offcanvas-title {
+        color: #a14892; /* Primary color for title */
+        font-weight: 600; /* Bold title */
+        margin: 0;
+    }
+
+    .custom-close-btn {
+        color: #a14892; /* Close button color */
+    }
+
+    /* Back Button */
+    .btn-back {
+        background: none;
+        border: none;
+        color: #a14892;
+        font-weight: 500;
+        padding: 0;
+        margin-right: 10px;
+    }
+
+    .btn-back:hover {
+        color: #7a366f; /* Darker shade on hover */
+    }
+
+    .btn-back i {
+        margin-right: 5px;
+    }
+
+    /* Custom List Group */
+    .custom-list-group {
+        margin: 0;
+        padding: 0;
+    }
+
+    .custom-list-item {
+        border: none; /* Remove borders */
+        padding: 12px 16px; /* Add padding */
+        background-color: transparent; /* Transparent background */
+    }
+
+    .custom-list-item:hover {
+        background-color: #f8f9fa; /* Light background on hover */
+    }
+
+    .custom-link {
+        color: #333; /* Dark text color */
+        font-weight: 500; /* Medium font weight */
+        text-decoration: none; /* Remove underline */
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .custom-link:hover {
+        color: #a14892; /* Primary color on hover */
+    }
+
+    /* Custom Icons */
+    .custom-icon {
+        color: #a14892; /* Icon color */
+        font-size: 14px; /* Icon size */
+    }
+</style>
+ <!-- Custom CSS for Wishlist Offcanvas -->
+ <style>
+    /* Wishlist Card Styling */
+    .wishlist-card {
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .wishlist-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .wishlist-card img {
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .wishlist-card .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .wishlist-card .card-text {
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: #6c757d;
+    }
+
+    .wishlist-card .card-price {
+        font-size: 16px;
+        color: #a14892;
+        margin-bottom: 10px;
+    }
+
+    .wishlist-card .btn-group {
+        gap: 8px;
+    }
+
+    .wishlist-card .btn {
+        flex: 1;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .wishlist-card .btn-primary {
+        background-color: #a14892;
+        border-color: #a14892;
+    }
+
+    .wishlist-card .btn-primary:hover {
+        background-color: #7a366f;
+        border-color: #7a366f;
+    }
+
+    .wishlist-card .btn-outline-danger {
+        border-color: #dc3545;
+        color: #dc3545;
+    }
+
+    .wishlist-card .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    /* Sticky Footer Actions */
+    .sticky-bottom {
+        position: sticky;
+        bottom: 0;
+        background-color: white;
+        padding: 10px;
+        border-top: 1px solid #e9ecef;
+        z-index: 1000; /* Ensure footer is above other content */
+    }
+
+    .sticky-bottom .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+        border-radius: 4px;
+    }
+
+    .sticky-bottom .btn-outline-primary {
+        border-color: #a14892;
+        color: #a14892;
+    }
+
+    .sticky-bottom .btn-outline-primary:hover {
+        background-color: #a14892;
+        color: white;
+    }
+
+    .sticky-bottom .btn-outline-danger {
+        border-color: #dc3545;
+        color: #dc3545;
+    }
+
+    .sticky-bottom .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 576px) {
+        .wishlist-card img {
+            height: 80px; /* Smaller image on mobile */
+        }
+
+        .wishlist-card .card-title {
+            font-size: 14px; /* Smaller title on mobile */
+        }
+
+        .wishlist-card .card-text {
+            font-size: 12px; /* Smaller text on mobile */
+        }
+
+        .wishlist-card .card-price {
+            font-size: 14px; /* Smaller price on mobile */
+        }
+
+        .wishlist-card .btn {
+            font-size: 12px; /* Smaller buttons on mobile */
+            padding: 6px 10px;
+        }
+
+        .sticky-bottom .btn {
+            font-size: 12px; /* Smaller footer buttons on mobile */
+            padding: 6px 12px;
+        }
+    }
+</style>
+<!-- Custom CSS for Shopping Cart Offcanvas -->
+<style>
+    /* Cart Item Styling */
+    .cart-item {
+        background-color: white;
+    }
+
+    .cart-item-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .cart-item-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .price {
+        font-size: 16px;
+        font-weight: 500;
+        color: #a14892;
+    }
+
+    .quantity-box .btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .quantity-box .form-control {
+        font-size: 14px;
+    }
+
+    /* Accordion Styling */
+    .accordion-button {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .accordion-body {
+        padding: 16px;
+    }
+
+    .offer-box h5 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .offer-box p {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .offer-box ul {
+        margin-top: 10px;
+    }
+
+    .offer-box ul li {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    /* Offcanvas Footer Styling */
+    .offcanvas-footer {
+        background-color: white;
+    }
+
+    .total-label {
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .total-amount {
+        font-size: 18px;
+        font-weight: 600;
+        color: #a14892;
+    }
+
+    .checkout-btn {
+        background-color: #a14892;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+        background-color: #7a366f;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 576px) {
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .cart-item-title {
+            font-size: 14px;
+        }
+
+        .price {
+            font-size: 14px;
+        }
+
+        .quantity-box .btn {
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+
+        .quantity-box .form-control {
+            font-size: 12px;
+            width: 40px;
+        }
+
+        .accordion-button {
+            font-size: 14px;
+        }
+
+        .offer-box h5 {
+            font-size: 14px;
+        }
+
+        .offer-box p,
+        .offer-box ul li {
+            font-size: 12px;
+        }
+
+        .total-label {
+            font-size: 14px;
+        }
+
+        .total-amount {
+            font-size: 16px;
+        }
+
+        .checkout-btn {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+</style>
 </head>
 
 <body>
 
-    <div class="main">
-        <article class="newsArticle">Women's Day Sale Women's Office Bags only at ₹1499</article>
+  <div class="main">
+    <article class="newsArticle">Women's Day Sale Women's Office Bags only at ₹1499</article>
 
-        <div class="container-fluid w-100">
+    <div class="container-fluid w-100">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Mobile Nav Toggle -->
+                <span class="bi bi-list fs-3 d-none mbNav" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></span>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- Desktop Nav -->
+                <ul class="navbar-nav mbView">
+                    <!-- Bags Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="bagsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bags
+                        </a>
+                        <div class="dropdown-menu mega-menu p-4" aria-labelledby="bagsDropdown">
+                            <div class="row">
+                                <!-- Handbags Section -->
+                                <div class="col-md-4">
+                                    <h6>Handbags</h6>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-bag"></i>
+                                            Tote Bags
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-bag"></i>
+                                            Clutches
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-bag"></i>
+                                            Shoulder Bags
+                                        </a>
+                                    </div>
+                                </div>
 
+                                <!-- Backpacks Section -->
+                                <div class="col-md-4">
+                                    <h6>Backpacks</h6>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-backpack"></i>
+                                            Laptop Backpacks
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-backpack"></i>
+                                            Travel Backpacks
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-backpack"></i>
+                                            School Backpacks
+                                        </a>
+                                    </div>
+                                </div>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <span class="bi bi-list fs-3 d-none mbNav" data-bs-toggle = "offcanvas" data-bs-target="#offcanvas"  ></span>
-                    <!-- mobile nav  -->
-                    
-                   
+                                <!-- Luggage Section -->
+                                <div class="col-md-4">
+                                    <h6>Luggage</h6>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-suitcase"></i>
+                                            Suitcases
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-suitcase"></i>
+                                            Duffel Bags
+                                        </a>
+                                    </div>
+                                    <div class="dropdown-item">
+                                        <a href="#">
+                                            <i class="bi bi-suitcase"></i>
+                                            Travel Accessories
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-
-
-
-
-
-                    <!-- desktop nav -->
-                    <ul class="navbar-nav mbView">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="./page/product.html">Bags
+                    <!-- Luggage Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="luggageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Luggage
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="luggageDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-suitcase"></i>
+                                    Suitcases
                                 </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                Luggage
-                               </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                Backpacks
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-suitcase"></i>
+                                    Duffel Bags
                                 </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                Women's Day Sale</a>
-                        </li>
-                    </ul>
-                    <div>
-                        <!-- <h1>theclutcheshub</h1> -->
-                        <a class="navbar-brand" href="#">
-                            <img src="./image/logo.png" alt="logo" width="150" height="100"
-                                class="logo">
-                        </a> 
-                    </div>  
-                    <ul class="navbar-nav mbView"> 
-                       
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Footwear
-
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Collections
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-suitcase"></i>
+                                    Travel Accessories
                                 </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                About Us</a>
-                        </li>
-                       
+                            </li>
+                        </ul>
+                    </li>
 
-                    </ul>
-                   <div class="icons">
-                    <div class="serchIcon ">
-                            
+                    <!-- Backpacks Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="backpacksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Backpacks
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="backpacksDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-backpack"></i>
+                                    Laptop Backpacks
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-backpack"></i>
+                                    Travel Backpacks
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-backpack"></i>
+                                    School Backpacks
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Women's Day Sale -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-gift"></i>
+                            Women's Day Sale
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Logo -->
+                <div>
+                    <a class="navbar-brand" href="#">
+                        <img src="./image/logo.png" alt="logo" width="150" height="100" class="logo">
+                    </a>
+                </div>
+
+                <!-- Right Side Nav -->
+                <ul class="navbar-nav mbView">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-shoe"></i>
+                            Footwear
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-collection"></i>
+                            Collections
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-info-circle"></i>
+                            About Us
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Icons -->
+                <div class="icons">
+                    <div class="serchIcon">
                         <span class="bi bi-search fs-4"></span>
-                     </div>
-                     <div class="cartIcon">
-                       <span class="bi bi-person fs-4"  data-bs-toggle="modal" data-bs-target="#loginModal"></span>
-                         <span class="bi bi-heart m-3 fs-4" data-bs-toggle = "offcanvas" data-bs-target="#wishlist"  ></span>
-                         <span class="bi bi-cart fs-4"  data-bs-toggle = "offcanvas" data-bs-target="#Cart"   ></span>
-                     </div>
-                   </div>
+                    </div>
+                    <div class="cartIcon">
+                        <span class="bi bi-person fs-4" data-bs-toggle="modal" data-bs-target="#loginModal"></span>
+                        <span class="bi bi-heart m-3 fs-4" data-bs-toggle="offcanvas" data-bs-target="#wishlist"></span>
+                        <span class="bi bi-cart fs-4" data-bs-toggle="offcanvas" data-bs-target="#Cart"></span>
+                    </div>
                 </div>
-        </div>
-
-        <!-- login panel -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Welcome to <img src="./image/logo.png" width="100"></h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p>Enter your log in details</p>
-                  
-                  <!-- Phone Number Input -->
-                  <div class="phone-input">
-                      <select>
-                          <option>+91</option>
-                          <option>+1</option>
-                          <option>+44</option>
-                      </select>
-                      <input type="text" placeholder="Phone number">
-                  </div>
-          
-                  <!-- Terms and Conditions -->
-                  <p class="terms">
-                      This site is protected by reCAPTCHA and the Google 
-                      <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply. <br>
-                      On Clicking Continue, I agree to <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
-                  </p>
-          
-                  <!-- Continue Button -->
-                  <button class="btn-Class w-100">Continue</button>
-          
-                  <!-- Other Login Options -->
-                  <div class="btn-options">
-                      <button><img src="https://img.icons8.com/ios-glyphs/20/000000/new-post.png"/> Email</button>
-                      <button><img src="https://img.icons8.com/ios-glyphs/20/4CAF50/whatsapp.png"/> WhatsApp</button>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        <!-- login panel -->
-        <div class="container-fluid d-sm-block d-md-block d-lg-none d-xl-none">
-            <div class="input-group border border-dark m-3 me-4 rounded-1 w-100" style="max-width: 97%;">
-                <span class="input-group-text bg-white border-0">
-                    <i class="bi bi-search fs-5"></i>
-                </span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-            </div>
-        </div>
-        
-        
         </nav>
     </div>
+
+    <!-- Login Panel -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Welcome to <img src="./image/logo.png" width="100"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your log in details</p>
+                    <!-- Phone Number Input -->
+                    <div class="phone-input">
+                        <select>
+                            <option>+91</option>
+                            <option>+1</option>
+                            <option>+44</option>
+                        </select>
+                        <input type="text" placeholder="Phone number">
+                    </div>
+                    <!-- Terms and Conditions -->
+                    <p class="terms">
+                        This site is protected by reCAPTCHA and the Google
+                        <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply. <br>
+                        On Clicking Continue, I agree to <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
+                    </p>
+                    <!-- Continue Button -->
+                    <button class="btn-Class w-100">Continue</button>
+                    <!-- Other Login Options -->
+                    <div class="btn-options">
+                        <button><img src="https://img.icons8.com/ios-glyphs/20/000000/new-post.png" /> Email</button>
+                        <button><img src="https://img.icons8.com/ios-glyphs/20/4CAF50/whatsapp.png" /> WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div class="container-fluid d-sm-block d-md-block d-lg-none d-xl-none">
+        <div class="input-group border border-dark m-3 me-4 rounded-1 w-100" style="max-width: 97%;">
+            <span class="input-group-text bg-white border-0">
+                <i class="bi bi-search fs-5"></i>
+            </span>
+            <input type="text" class="form-control border-0" placeholder="Search">
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
 
     <!-- Cart  -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="Cart" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-            <h4 class="">Shopping Cart</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h4 class="offcanvas-title">Shopping Cart</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body" style="padding: 0px !important;">
+        <div class="offcanvas-body p-0">
             <div class="cart-container">
-               
-            
-                <!-- Available Offers Section -->
-             
-            
                 <!-- Product 1 -->
-                <div class="cart-item">
-                    <img src="./image/pro2.webp" alt="Product">
-                    <div class="flex-grow-1">
-                        <h5>FloMotif Classic Zipper Wallet</h5>
-                        <div class="price_ince">
-                            <div class="price">₹<span class="unit-price">1698.90</span></div>
-                            <div class="quantity-box">
-                                <button class="decrease">-</button>
-                                <input type="text" class="form-control text-center quantity" value="1" style="width: 40px; border: none;">
-                                <button class="increase">+</button>
+                <div class="cart-item p-3 border-bottom">
+                    <div class="d-flex align-items-center">
+                        <img src="./image/pro2.webp" alt="Product" class="cart-item-img">
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="cart-item-title">FloMotif Classic Zipper Wallet</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="price">₹<span class="unit-price">1698.90</span></div>
+                                <div class="quantity-box d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary decrease">-</button>
+                                    <input type="text" class="form-control text-center quantity mx-2" value="1" style="width: 50px;">
+                                    <button class="btn btn-sm btn-outline-secondary increase">+</button>
+                                </div>
                             </div>
-                           </div>
-                    </div> 
-                   
-                
-                </div>
-            
-                <!-- Product 2 -->
-                <div class="cart-item">
-                    <img src="./image/pro1.webp" alt="Product">
-                    <div class="flex-grow-1">
-                        <h5>Lattice Lace Women's Office Bag</h5>
-                       <div class="price_ince">
-                        <div class="price">₹<span class="unit-price">1698.90</span></div>
-                        <div class="quantity-box">
-                            <button class="decrease">-</button>
-                            <input type="text" class="form-control text-center quantity" value="1" style="width: 40px; border: none;">
-                            <button class="increase">+</button>
                         </div>
-                       </div>
                     </div>
-                    
                 </div>
-            
+    
+                <!-- Product 2 -->
+                <div class="cart-item p-3 border-bottom">
+                    <div class="d-flex align-items-center">
+                        <img src="./image/pro1.webp" alt="Product" class="cart-item-img">
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="cart-item-title">Lattice Lace Women's Office Bag</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="price">₹<span class="unit-price">1698.90</span></div>
+                                <div class="quantity-box d-flex align-items-center">
+                                    <button class="btn btn-sm btn-outline-secondary decrease">-</button>
+                                    <input type="text" class="form-control text-center quantity mx-2" value="1" style="width: 50px;">
+                                    <button class="btn btn-sm btn-outline-secondary increase">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Available Offers Section -->
                 <div class="accordion" id="offerAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
@@ -212,25 +685,24 @@
                                 <div class="offer-box">
                                     <h5>Last Few Hours - Women's Day Sale <br> <strong>BOGO Sale</strong></h5>
                                     <p>Add 2 Products in cart to avail the offer.</p>
-                                    <ul>
-                                        <li>Slings BOGO</li>
-                                        <li>Wallet BOGO</li>
-                                        <li>Offer cannot be combined with other discounts.</li>
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-check-circle text-success me-2"></i>Slings BOGO</li>
+                                        <li><i class="bi bi-check-circle text-success me-2"></i>Wallet BOGO</li>
+                                        <li><i class="bi bi-x-circle text-danger me-2"></i>Offer cannot be combined with other discounts.</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-           
             </div>
-          
         </div>
-        <div class="offcanvas-footer">
-            <div class="total-amount"><span>Total:</span><span id="totalAmount"> ₹2797.90</span></div>
-        
-            <!-- Checkout Button -->
-            <button class="checkout-btn mt-3">Proceed to Checkout</button>
+        <div class="offcanvas-footer p-3 border-top">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="total-label">Total:</span>
+                <span class="total-amount fw-bold">₹<span id="totalAmount">2797.90</span></span>
+            </div>
+            <button class="checkout-btn w-100">Proceed to Checkout</button>
         </div>
     </div>
     <!-- Cart  -->
@@ -238,56 +710,207 @@
     <!-- wishList -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="wishlist" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
-         <h4>Wishlist</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h4 class="offcanvas-title">Wishlist</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="wishlist-card card ">
-                <img src="./image/pro1.webp" alt="Product Image" height="100px">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Lattice Lace Women's Office Bag</h5>
-                    <p class="card-date">16 Mar 2025</p>
-                    <p class="card-price">₹1,699.00</p>
-                    <div class="btn-group w-100" role="group">
-                        <button class="btn btn-primary cart-btn">ADD TO CART</button>
-                        <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+            <!-- Wishlist Card 1 -->
+            <div class="wishlist-card card mb-3">
+                <div class="row g-0">
+                    <div class="col-4">
+                        <img src="./image/pro1.webp" class="img-fluid rounded-start" alt="Product Image">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Lattice Lace Women's Office Bag</h5>
+                            <p class="card-text text-muted"><small>Added on 16 Mar 2025</small></p>
+                            <p class="card-price fw-bold">₹1,699.00</p>
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-primary btn-sm cart-btn">ADD TO CART</button>
+                                <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="wishlist-card card mt-2">
-                <img src="./image/pro1.webp" alt="Product Image" height="100px">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Lattice Lace Women's Office Bag</h5>
-                    <p class="card-date">16 Mar 2025</p>
-                    <p class="card-price">₹1,699.00</p>
-                    <div class="btn-group w-100" role="group">
-                        <button class="btn btn-primary cart-btn">ADD TO CART</button>
-                        <button class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+    
+            <!-- Wishlist Card 2 -->
+            <div class="wishlist-card card mb-3">
+                <div class="row g-0">
+                    <div class="col-4">
+                        <img src="./image/pro1.webp" class="img-fluid rounded-start" alt="Product Image">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Lattice Lace Women's Office Bag</h5>
+                            <p class="card-text text-muted"><small>Added on 16 Mar 2025</small></p>
+                            <p class="card-price fw-bold">₹1,699.00</p>
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-primary btn-sm cart-btn">ADD TO CART</button>
+                                <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-        
-            <div class="text-center mt-3 position-absolute bottom-0 ms-3">
-                <span class="footer-actions">ADD ALL TO CART</span> | 
-                <span class="footer-actions">REMOVE ALL FROM WISHLIST</span>
+    
+            <!-- Footer Actions -->
+            <div class="text-center mt-3 sticky-bottom bg-white p-3 border-top">
+                <button class="btn btn-outline-primary btn-sm me-2">ADD ALL TO CART</button>
+                <button class="btn btn-outline-danger btn-sm">REMOVE ALL</button>
             </div>
         </div>
     </div>
+    
+   
+  
+    
+   
+   
     <!-- wishlist end -->
 
  
 
-   <!--mobile nav  -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-         
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-         
-        </div>
+  
+<!-- Mobile Nav -->
+<!-- Main Offcanvas -->
+<div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header custom-offcanvas-header">
+        <h5 class="offcanvas-title custom-offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+        <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body custom-offcanvas-body">
+        <ul class="list-group custom-list-group">
+            <!-- Bags -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link" data-bs-toggle="offcanvas" data-bs-target="#bagsOffcanvas">
+                    Bags <i class="bi bi-chevron-right custom-icon"></i>
+                </a>
+            </li>
+
+            <!-- Luggage -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link" data-bs-toggle="offcanvas" data-bs-target="#luggageOffcanvas">
+                    Luggage <i class="bi bi-chevron-right custom-icon"></i>
+                </a>
+            </li>
+
+            <!-- Backpacks -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link" data-bs-toggle="offcanvas" data-bs-target="#backpacksOffcanvas">
+                    Backpacks <i class="bi bi-chevron-right custom-icon"></i>
+                </a>
+            </li>
+
+            <!-- Women's Day Sale -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Women's Day Sale</a>
+            </li>
+
+            <!-- Footwear -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Footwear</a>
+            </li>
+
+            <!-- Collections -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Collections</a>
+            </li>
+
+            <!-- About Us -->
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">About Us</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Main Offcanvas End -->
+
+<!-- Bags Offcanvas -->
+<div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="bagsOffcanvas" aria-labelledby="bagsOffcanvasLabel">
+    <div class="offcanvas-header custom-offcanvas-header">
+        <button type="button" class="btn btn-back" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+            <i class="bi bi-arrow-left"></i> Back
+        </button>
+        <h5 class="offcanvas-title custom-offcanvas-title" id="bagsOffcanvasLabel">Bags</h5>
+        <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body custom-offcanvas-body">
+        <ul class="list-group custom-list-group">
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Tote Bags</a>
+            </li>
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Clutches</a>
+            </li>
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Shoulder Bags</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Bags Offcanvas End -->
+
+<!-- Luggage Offcanvas -->
+<div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="luggageOffcanvas" aria-labelledby="luggageOffcanvasLabel">
+    <div class="offcanvas-header custom-offcanvas-header">
+        <button type="button" class="btn btn-back" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+            <i class="bi bi-arrow-left"></i> Back
+        </button>
+        <h5 class="offcanvas-title custom-offcanvas-title" id="luggageOffcanvasLabel">Luggage</h5>
+        <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body custom-offcanvas-body">
+        <ul class="list-group custom-list-group">
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Suitcases</a>
+            </li>
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Duffel Bags</a>
+            </li>
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Travel Accessories</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Luggage Offcanvas End -->
+
+<!-- Backpacks Offcanvas -->
+<div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="backpacksOffcanvas" aria-labelledby="backpacksOffcanvasLabel">
+    <div class="offcanvas-header custom-offcanvas-header">
+        <button type="button" class="btn btn-back" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+            <i class="bi bi-arrow-left"></i> Back
+        </button>
+        <h5 class="offcanvas-title custom-offcanvas-title" id="backpacksOffcanvasLabel">Backpacks</h5>
+        <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body custom-offcanvas-body">
+        <ul class="list-group custom-list-group">
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Laptop Backpacks</a>
+            </li>
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">Travel Backpacks</a>
+            </li>
+            <li class="list-group-item custom-list-item">
+                <a href="#" class="text-decoration-none custom-link">School Backpacks</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Backpacks Offcanvas End -->
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Mobile Nav End -->
+
+
+
+<!-- Custom CSS for Offcanvas -->
+
     <!-- mobile nav end  -->
     </div>
 
@@ -1053,7 +1676,7 @@
     </div>
 </footer>
  <!-- footer -->
-
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./src/js/main.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

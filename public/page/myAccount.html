@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Account</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Correct Bootstrap Icons CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         body {
@@ -58,25 +59,6 @@
             font-weight: bold;
             float: right;
         }
-        .tracking-progress {
-            margin-top: 20px;
-        }
-        .tracking-step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .tracking-step .icon {
-            font-size: 24px;
-            margin-right: 10px;
-            color: #a14892;
-        }
-        .tracking-step.completed .icon {
-            color: green;
-        }
-        .tracking-step.completed .text {
-            color: green;
-        }
     </style>
 </head>
 <body>
@@ -91,13 +73,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="account-tab" data-bs-toggle="tab" href="#accountSettings">Account Settings</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="track-tab" data-bs-toggle="tab" href="#trackOrder">Track Order</a>
-            </li>
         </ul>
         
         <div class="tab-content mt-3">
-            <!-- Order History Tab -->
             <div class="tab-pane fade show active" id="orderHistory">
                 <h4>Order History</h4>
                 <div id="orderList">
@@ -120,7 +98,6 @@
                 </div>
             </div>
             
-            <!-- Account Settings Tab -->
             <div class="tab-pane fade" id="accountSettings">
                 <div class="d-flex justify-content-between align-items-center">
                     <h4>Manage Address</h4>
@@ -141,37 +118,6 @@
                             <i class="bi bi-pencil-square" onclick="editAddress(this)"></i>
                             <i class="bi bi-trash" onclick="deleteAddress(this)"></i>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Track Order Tab -->
-            <div class="tab-pane fade" id="trackOrder">
-                <h4>Track Your Order</h4>
-                <div class="mb-3">
-                    <label for="orderId" class="form-label">Enter Order ID:</label>
-                    <input type="text" id="orderId" class="form-control" placeholder="Order ID">
-                    <button class="btn btn-primary mt-2" onclick="trackOrder()">Track Order</button>
-                </div>
-                
-                <!-- Order Tracking Progress -->
-                <div id="trackingStatus" class="tracking-progress" style="display: none;">
-                    <h5>Order Status</h5>
-                    <div class="tracking-step completed">
-                        <i class="bi bi-check-circle-fill icon"></i>
-                        <div class="text">Order Placed</div>
-                    </div>
-                    <div class="tracking-step completed">
-                        <i class="bi bi-check-circle-fill icon"></i>
-                        <div class="text">Order Shipped</div>
-                    </div>
-                    <div class="tracking-step">
-                        <i class="bi bi-truck icon"></i>
-                        <div class="text">Out for Delivery</div>
-                    </div>
-                    <div class="tracking-step">
-                        <i class="bi bi-box-seam icon"></i>
-                        <div class="text">Delivered</div>
                     </div>
                 </div>
             </div>
@@ -290,17 +236,6 @@
         if (confirm('Are you sure you want to delete this address?')) {
             element.closest('.address-card').remove();
         }
-    }
-
-    function trackOrder() {
-        let orderId = document.getElementById('orderId').value;
-        if (!orderId) {
-            alert('Please enter an Order ID.');
-            return;
-        }
-
-        // Simulate order tracking logic
-        document.getElementById('trackingStatus').style.display = 'block';
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

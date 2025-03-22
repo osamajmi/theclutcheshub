@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .thank-you-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .thank-you-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #a14892;
+            font-family: 'Brush Script MT', cursive;
+        }
+        .order-details {
+            text-align: left;
+        }
+        .product-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .product-item img {
+            width: 70px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .btn-home {
+            background: #a14892;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 18px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="thank-you-container">
+        <img src="../image/logo.png" alt="Brand Logo" class="mb-3"> <!-- Brand Logo -->
+        <h2 class="thank-you-text">Thank You for Your Order!</h2>
+        <p>Your order has been placed successfully. Below are the details:</p>
+
+        <!-- Order Details -->
+        <div class="order-details">
+            <h5>Order Details</h5>
+            <p><strong>Order ID:</strong> #123456</p>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Shipping Address:</strong> 123, Main Street, New York, USA</p>
+            <p><strong>Payment Method:</strong> Credit/Debit Card</p>
+        </div>
+
+        <hr>
+
+        <!-- Product Details -->
+        <h5>Products Ordered</h5>
+        <div class="product-item">
+            <img src="../image/pro1.webp" alt="Product">
+            <div>
+                <h6>FloMotif Classic Wallet</h6>
+                <p>₹1099.00 x 1</p>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <img src="../image/pro2.webp" alt="Product">
+            <div>
+                <h6>Lattice Lace Office Bag</h6>
+                <p>₹1698.90 x 1</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between">
+            <p><strong>Subtotal:</strong></p>
+            <p>₹2797.90</p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <p><strong>Shipping:</strong></p>
+            <p>₹50.00</p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <p><strong>Discount Applied:</strong></p>
+            <p>- ₹100.00</p>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between" style="font-size: 20px; font-weight: bold; color: #a14892;">
+            <p>Total:</p>
+            <p>₹2747.90</p>
+        </div>
+
+     <a href="../index.html">  <button class="btn-home mt-3">Back to Home</button></a> 
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

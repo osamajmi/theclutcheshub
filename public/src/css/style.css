@@ -1449,3 +1449,49 @@ button.increase {
     width: 399px;
    
 }
+
+
+/* Custom CSS for Bags Dropdown */
+.mega-menu {
+    width: 800px; /* Increase the width of the dropdown */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.mega-menu .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mega-menu .col-md-4 {
+    flex: 1; /* Ensure equal width for all columns */
+    padding: 10px; /* Add padding between columns */
+}
+
+.mega-menu h6 {
+    font-size: 16px; /* Increase font size for section headers */
+    font-weight: bold;
+    color: #a14892; /* Custom color for headers */
+    margin-bottom: 15px; /* Add space below headers */
+}
+
+.mega-menu .dropdown-item {
+    padding: 8px 12px; /* Add padding to dropdown items */
+    border-radius: 5px; /* Rounded corners for dropdown items */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.mega-menu .dropdown-item:hover {
+    background-color: #f8f9fa; /* Light background on hover */
+}
+
+.mega-menu .dropdown-item a {
+    color: #333; /* Dark text color */
+    text-decoration: none; /* Remove underline */
+    display: flex;
+    align-items: center;
+}
+
+.mega-menu .dropdown-item i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 18px; /* Increase icon size */
+}

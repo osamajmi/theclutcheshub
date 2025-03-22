@@ -3,48 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Account</title>
+    <title>My Account - E-Commerce</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Correct Bootstrap Icons CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
-        .account-container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
+        .sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+        }
+        .sidebar a {
+            display: block;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #a14892;
+            color: white;
+        }
+        .main-content {
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        .nav-tabs .nav-link {
-            color: #a14892;
-            font-size: 18px;
-            font-weight: bold;
+        .profile-header {
+            margin-bottom: 20px;
+            text-align: center;
         }
-        .nav-tabs .nav-link.active {
-            background-color: #a14892;
-            color: white;
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #a14892;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .profile-header h2 {
+            color: #a14892;
+        }
+        .profile-header p {
+            color: #666;
         }
         .order-card, .address-card {
-            background: #f8f9fa;
-            padding: 15px;
+            background: #ffffff;
+            padding: 20px;
             border-radius: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-left: 5px solid #a14892;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .order-card .left {
-            flex: 1;
-        }
-        .order-card .right {
+        .order-card h5, .address-card h5 {
+            color: #333;
             font-weight: bold;
-            font-size: 16px;
+        }
+        .order-card p, .address-card p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .order-card .status {
+            color: #a14892;
+            font-weight: bold;
+        }
+        .btn-cancel {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .btn-track {
+            background-color: #a14892;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .btn-add {
+            background-color: #a14892;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .btn-add:hover {
+            background-color: #8a3a7b;
+        }
+        .hidden {
+            display: none;
         }
         .action-icons i {
             font-size: 18px;
@@ -52,73 +107,189 @@
             cursor: pointer;
         }
         .bi-pencil-square { color: #a14892; }
-        .bi-trash { color: red; }
-        .btn-add {
-            background: #28a745;
+        .bi-trash { color: #dc3545; }
+        .sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+        }
+        .sidebar a {
+            display: block;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #a14892;
             color: white;
-            font-weight: bold;
-            float: right;
+        }
+        .main-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #a14892;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .profile-header h2 {
+            color: #a14892;
+        }
+        .profile-header p {
+            color: #666;
+        }
+        .btn-save {
+            background-color: #a14892;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .btn-save:hover {
+            background-color: #8a3a7b;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-<div class="container mt-5">
-    <div class="account-container">
-        <h2 class="text-center mb-4">My Account</h2>
-        
-        <ul class="nav nav-tabs justify-content-center" id="accountTabs">
-            <li class="nav-item">
-                <a class="nav-link active" id="order-tab" data-bs-toggle="tab" href="#orderHistory">Order History</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="account-tab" data-bs-toggle="tab" href="#accountSettings">Account Settings</a>
-            </li>
-        </ul>
-        
-        <div class="tab-content mt-3">
-            <div class="tab-pane fade show active" id="orderHistory">
-                <h4>Order History</h4>
-                <div id="orderList">
-                    <div class="order-card">
-                        <div class="left">
-                            <p><strong>Order #12345</strong><br>Product: Nike Shoes<br>Status: Delivered</p>
-                        </div>
-                        <div class="right">
-                            $99
-                        </div>
-                    </div>
-                    <div class="order-card">
-                        <div class="left">
-                            <p><strong>Order #67890</strong><br>Product: Apple Watch<br>Status: Shipped</p>
-                        </div>
-                        <div class="right">
-                            $299
-                        </div>
-                    </div>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="sidebar">
+                <a href="#" class="active" data-target="account-main">ACCOUNT MAIN</a>
+                <a href="#" data-target="new-orders">NEW ORDERS</a>
+                <a href="#" data-target="orders-history">ORDERS HISTORY</a>
+                <!-- <a href="#" data-target="my-wishlist">MY WISHLIST</a>
+                <a href="#" data-target="transactions">TRANSACTIONS</a> -->
+                <a href="#" data-target="profile-setting">PROFILE SETTING</a>
             </div>
-            
-            <div class="tab-pane fade" id="accountSettings">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4>Manage Address</h4>
-                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addressModal" onclick="resetForm()">+ Add Address</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <div class="main-content">
+                <!-- Account Main -->
+                <div id="account-main" class="content-section">
+                    <div class="profile-header">
+                        <img src="../image/logo.jpg" alt="Profile Picture" id="profile-image">
+                        <h2>Mr. Jackson Mike</h2>
+                        <p>Email: myusername@gmail.com, Phone: +1234567890988</p>
+                    </div>
+                    <div class="address-section">
+                        <h4>Addresses</h4>
+                        <div id="addressList">
+                            <div class="address-card">
+                                <h5>Home Address</h5>
+                                <p>John Doe, 1234567890</p>
+                                <p>123, Main Street, NY, USA, 10001</p>
+                                <div class="action-icons">
+                                    <i class="bi bi-pencil-square" onclick="editAddress(this)"></i>
+                                    <i class="bi bi-trash" onclick="deleteAddress(this)"></i>
+                                </div>
+                            </div>
+                            <div class="address-card">
+                                <h5>Office Address</h5>
+                                <p>Jane Smith, 0987654321</p>
+                                <p>456, Business Road, CA, USA, 90001</p>
+                                <div class="action-icons">
+                                    <i class="bi bi-pencil-square" onclick="editAddress(this)"></i>
+                                    <i class="bi bi-trash" onclick="deleteAddress(this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#addressModal">+ ADD NEW ADDRESS</button>
+                    </div>
                 </div>
-                
-                <div id="addressList">
-                    <div class="address-card">
-                        <p><strong>Home Address:</strong> John Doe, 1234567890, 123, Main Street, NY, USA, 10001</p>
-                        <div class="action-icons">
-                            <i class="bi bi-pencil-square" onclick="editAddress(this)"></i>
-                            <i class="bi bi-trash" onclick="deleteAddress(this)"></i>
-                        </div>
+
+                <!-- New Orders -->
+                <div id="new-orders" class="content-section hidden">
+                    <h4>New Orders</h4>
+                    <div class="order-card">
+                        <h5>Order ID: 8924 <span class="status">Shipped</span></h5>
+                        <p>Date: 16 December 2022</p>
+                        <p>Contact: Mike Johnatan, Phone: 371-295-9131, Email: info@mywebsite.com</p>
+                        <p>Shipping Address: United States, 3601 Old Capitol Trail, Unit A-7, Suite 170777, Wilmington, DE 19808</p>
+                        <p>Payment: Visa **** 4216, Shipping fee: $56, Total paid: $456</p>
+                        <p>Items:</p>
+                        <ul>
+                            <li>T-shirts with multiple colors - 2x = $25.98</li>
+                            <li>Gaming Headset 32db Black - 2x = $339.90</li>
+                            <li>Apple Watch Series 4 Space Gray - 2x = $339.90</li>
+                        </ul>
+                        <button class="btn btn-track">TRACK ORDER</button>
                     </div>
-                    <div class="address-card">
-                        <p><strong>Office Address:</strong> Jane Smith, 0987654321, 456, Business Road, CA, USA, 90001</p>
-                        <div class="action-icons">
-                            <i class="bi bi-pencil-square" onclick="editAddress(this)"></i>
-                            <i class="bi bi-trash" onclick="deleteAddress(this)"></i>
-                        </div>
+                </div>
+
+                <!-- Orders History -->
+                <div id="orders-history" class="content-section hidden">
+                    <h4>Orders History</h4>
+                    <div class="order-card">
+                        <h5>Order ID: 9088 <span class="status">Pending</span></h5>
+                        <p>Date: 16 December 2022</p>
+                        <button class="btn btn-cancel">CANCEL ORDER</button>
                     </div>
+                </div>
+
+                <!-- My Wishlist -->
+                <div id="my-wishlist" class="content-section hidden">
+                    <h4>My Wishlist</h4>
+                    <p>Your wishlist items will be displayed here.</p>
+                </div>
+
+                <!-- Transactions -->
+                <div id="transactions" class="content-section hidden">
+                    <h4>Transactions</h4>
+                    <p>Your transaction history will be displayed here.</p>
+                </div>
+
+                <!-- Profile Setting -->
+                               <!-- Profile Setting -->
+                               <div id="profile-setting" class="content-section hidden">
+                                <h4>Profile Setting</h4>
+                                <div class="profile-header">
+                                    <img src="../image/logo.jpg" alt="Profile Picture" id="profile-image-setting">
+                                    <h2 id="profile-name">Mr. Jackson Mike</h2>
+                                    <p id="profile-email">Email: myusername@gmail.com</p>
+                                </div>
+                                <form id="profileForm">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" value="Mr. Jackson Mike" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" value="myusername@gmail.com" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">New Password</label>
+                                        <input type="password" class="form-control" id="password" placeholder="Enter new password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                                    </div>
+                                    <button type="submit" class="btn btn-save">Save Changes</button>
+                                </form>
+                            </div>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </div>
@@ -159,41 +330,87 @@
 </div>
 
 <script>
-    let editingIndex = null; // To track which address is being edited
+    // JavaScript to handle sidebar clicks
+    document.querySelectorAll('.sidebar a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    function resetForm() {
-        document.getElementById('addressForm').reset();
-        editingIndex = null; // Reset editing index
-        document.getElementById('addressModalLabel').innerText = 'Add New Address';
-    }
+            // Remove active class from all links
+            document.querySelectorAll('.sidebar a').forEach(link => link.classList.remove('active'));
+
+            // Add active class to the clicked link
+            this.classList.add('active');
+
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => section.classList.add('hidden'));
+
+            // Show the target content section
+            const target = this.getAttribute('data-target');
+            document.getElementById(target).classList.remove('hidden');
+        });
+    });
+
+    // Functionality for Cancel Order button
+    document.querySelector('.btn-cancel')?.addEventListener('click', function () {
+        if (confirm('Are you sure you want to cancel this order?')) {
+            alert('Order cancelled!');
+        }
+    });
+
+    // Functionality for Track Order button
+    document.querySelector('.btn-track')?.addEventListener('click', function () {
+        alert('Tracking your order...');
+    });
+
+    // Functionality for Profile Image Upload
+    document.getElementById('profile-image').addEventListener('click', function () {
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.onchange = function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profile-image').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+        fileInput.click();
+    });
+
+    // Functionality for Add/Edit/Delete Address
+    let editingIndex = null;
 
     function saveAddress() {
-        let name = document.getElementById('name').value;
-        let mobile = document.getElementById('mobile').value;
-        let pincode = document.getElementById('pincode').value;
-        let address = document.getElementById('address').value;
-        let landmark = document.getElementById('landmark').value;
-        let alternateMobile = document.getElementById('alternateMobile').value;
-        let city = document.getElementById('city').value;
-        let state = document.getElementById('state').value;
-        let addressType = document.getElementById('addressType').value;
+        const name = document.getElementById('name').value;
+        const mobile = document.getElementById('mobile').value;
+        const pincode = document.getElementById('pincode').value;
+        const address = document.getElementById('address').value;
+        const landmark = document.getElementById('landmark').value;
+        const alternateMobile = document.getElementById('alternateMobile').value;
+        const city = document.getElementById('city').value;
+        const state = document.getElementById('state').value;
+        const addressType = document.getElementById('addressType').value;
 
         if (!name || !mobile || !pincode || !address || !city || !state) {
             return alert('Please fill all required fields!');
         }
 
-        let addressList = document.getElementById('addressList');
-        let addressText = `${name}, ${mobile}, ${address}, ${landmark}, ${city}, ${state}, ${pincode}`;
+        const addressList = document.getElementById('addressList');
+        const addressText = `${name}, ${mobile}, ${address}, ${landmark}, ${city}, ${state}, ${pincode}`;
 
         if (editingIndex !== null) {
             // Update existing address
-            let addressCard = addressList.children[editingIndex];
+            const addressCard = addressList.children[editingIndex];
             addressCard.querySelector('p').innerHTML = `<strong>${addressType} Address:</strong> ${addressText}`;
         } else {
             // Add new address
-            let div = document.createElement('div');
+            const div = document.createElement('div');
             div.classList.add('address-card');
-            div.innerHTML = `<p><strong>${addressType} Address:</strong> ${addressText}</p>
+            div.innerHTML = `<h5>${addressType} Address</h5>
+                             <p>${addressText}</p>
                              <div class="action-icons">
                                  <i class="bi bi-pencil-square" onclick="editAddress(this)"></i>
                                  <i class="bi bi-trash" onclick="deleteAddress(this)"></i>
@@ -202,15 +419,15 @@
         }
 
         // Clear the form and close the modal
-        resetForm();
-        let modal = bootstrap.Modal.getInstance(document.getElementById('addressModal'));
-        modal.hide();
+        document.getElementById('addressForm').reset();
+        editingIndex = null;
+        bootstrap.Modal.getInstance(document.getElementById('addressModal')).hide();
     }
 
     function editAddress(element) {
-        let addressCard = element.closest('.address-card');
-        let addressText = addressCard.querySelector('p').innerText.split(': ')[1];
-        let [name, mobile, address, landmark, city, state, pincode] = addressText.split(', ');
+        const addressCard = element.closest('.address-card');
+        const addressText = addressCard.querySelector('p').innerText.split(': ')[1];
+        const [name, mobile, address, landmark, city, state, pincode] = addressText.split(', ');
 
         // Pre-fill the form
         document.getElementById('name').value = name;
@@ -228,8 +445,7 @@
         document.getElementById('addressModalLabel').innerText = 'Edit Address';
 
         // Open the modal
-        let modal = new bootstrap.Modal(document.getElementById('addressModal'));
-        modal.show();
+        new bootstrap.Modal(document.getElementById('addressModal')).show();
     }
 
     function deleteAddress(element) {

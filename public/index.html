@@ -14,369 +14,7 @@
     <link rel="stylesheet" href="./src/css/mediaQuery.css">
 
     <title>Home Page </title>
-  <!-- Custom CSS for Offcanvas -->
-<!-- Custom CSS for Offcanvas -->
-<style>
-    /* Custom Offcanvas */
-    .custom-offcanvas {
-        background-color: white; /* White background */
-    }
 
-    .custom-offcanvas-header {
-        border-bottom: 1px solid #e9ecef; /* Light border below header */
-        padding: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .custom-offcanvas-title {
-        color: #a14892; /* Primary color for title */
-        font-weight: 600; /* Bold title */
-        margin: 0;
-    }
-
-    .custom-close-btn {
-        color: #a14892; /* Close button color */
-    }
-
-    /* Back Button */
-    .btn-back {
-        background: none;
-        border: none;
-        color: #a14892;
-        font-weight: 500;
-        padding: 0;
-        margin-right: 10px;
-    }
-
-    .btn-back:hover {
-        color: #7a366f; /* Darker shade on hover */
-    }
-
-    .btn-back i {
-        margin-right: 5px;
-    }
-
-    /* Custom List Group */
-    .custom-list-group {
-        margin: 0;
-        padding: 0;
-    }
-
-    .custom-list-item {
-        border: none; /* Remove borders */
-        padding: 12px 16px; /* Add padding */
-        background-color: transparent; /* Transparent background */
-    }
-
-    .custom-list-item:hover {
-        background-color: #f8f9fa; /* Light background on hover */
-    }
-
-    .custom-link {
-        color: #333; /* Dark text color */
-        font-weight: 500; /* Medium font weight */
-        text-decoration: none; /* Remove underline */
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .custom-link:hover {
-        color: #a14892; /* Primary color on hover */
-    }
-
-    /* Custom Icons */
-    .custom-icon {
-        color: #a14892; /* Icon color */
-        font-size: 14px; /* Icon size */
-    }
-</style>
- <!-- Custom CSS for Wishlist Offcanvas -->
- <style>
-    /* Wishlist Card Styling */
-    .wishlist-card {
-        border: 1px solid #e9ecef;
-        border-radius: 8px;
-        overflow: hidden;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .wishlist-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .wishlist-card img {
-        height: 100px;
-        object-fit: cover;
-    }
-
-    .wishlist-card .card-title {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 5px;
-        color: #333;
-    }
-
-    .wishlist-card .card-text {
-        font-size: 14px;
-        margin-bottom: 10px;
-        color: #6c757d;
-    }
-
-    .wishlist-card .card-price {
-        font-size: 16px;
-        color: #a14892;
-        margin-bottom: 10px;
-    }
-
-    .wishlist-card .btn-group {
-        gap: 8px;
-    }
-
-    .wishlist-card .btn {
-        flex: 1;
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .wishlist-card .btn-primary {
-        background-color: #a14892;
-        border-color: #a14892;
-    }
-
-    .wishlist-card .btn-primary:hover {
-        background-color: #7a366f;
-        border-color: #7a366f;
-    }
-
-    .wishlist-card .btn-outline-danger {
-        border-color: #dc3545;
-        color: #dc3545;
-    }
-
-    .wishlist-card .btn-outline-danger:hover {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    /* Sticky Footer Actions */
-    .sticky-bottom {
-        position: sticky;
-        bottom: 0;
-        background-color: white;
-        padding: 10px;
-        border-top: 1px solid #e9ecef;
-        z-index: 1000; /* Ensure footer is above other content */
-    }
-
-    .sticky-bottom .btn {
-        font-size: 14px;
-        padding: 8px 16px;
-        border-radius: 4px;
-    }
-
-    .sticky-bottom .btn-outline-primary {
-        border-color: #a14892;
-        color: #a14892;
-    }
-
-    .sticky-bottom .btn-outline-primary:hover {
-        background-color: #a14892;
-        color: white;
-    }
-
-    .sticky-bottom .btn-outline-danger {
-        border-color: #dc3545;
-        color: #dc3545;
-    }
-
-    .sticky-bottom .btn-outline-danger:hover {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 576px) {
-        .wishlist-card img {
-            height: 80px; /* Smaller image on mobile */
-        }
-
-        .wishlist-card .card-title {
-            font-size: 14px; /* Smaller title on mobile */
-        }
-
-        .wishlist-card .card-text {
-            font-size: 12px; /* Smaller text on mobile */
-        }
-
-        .wishlist-card .card-price {
-            font-size: 14px; /* Smaller price on mobile */
-        }
-
-        .wishlist-card .btn {
-            font-size: 12px; /* Smaller buttons on mobile */
-            padding: 6px 10px;
-        }
-
-        .sticky-bottom .btn {
-            font-size: 12px; /* Smaller footer buttons on mobile */
-            padding: 6px 12px;
-        }
-    }
-</style>
-<!-- Custom CSS for Shopping Cart Offcanvas -->
-<style>
-    /* Cart Item Styling */
-    .cart-item {
-        background-color: white;
-    }
-
-    .cart-item-img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-
-    .cart-item-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 8px;
-    }
-
-    .price {
-        font-size: 16px;
-        font-weight: 500;
-        color: #a14892;
-    }
-
-    .quantity-box .btn {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-
-    .quantity-box .form-control {
-        font-size: 14px;
-    }
-
-    /* Accordion Styling */
-    .accordion-button {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-    }
-
-    .accordion-body {
-        padding: 16px;
-    }
-
-    .offer-box h5 {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-    }
-
-    .offer-box p {
-        font-size: 14px;
-        color: #6c757d;
-    }
-
-    .offer-box ul {
-        margin-top: 10px;
-    }
-
-    .offer-box ul li {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    /* Offcanvas Footer Styling */
-    .offcanvas-footer {
-        background-color: white;
-    }
-
-    .total-label {
-        font-size: 16px;
-        font-weight: 500;
-        color: #333;
-    }
-
-    .total-amount {
-        font-size: 18px;
-        font-weight: 600;
-        color: #a14892;
-    }
-
-    .checkout-btn {
-        background-color: #a14892;
-        color: white;
-        border: none;
-        padding: 12px;
-        font-size: 16px;
-        font-weight: 500;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-    }
-
-    .checkout-btn:hover {
-        background-color: #7a366f;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 576px) {
-        .cart-item-img {
-            width: 60px;
-            height: 60px;
-        }
-
-        .cart-item-title {
-            font-size: 14px;
-        }
-
-        .price {
-            font-size: 14px;
-        }
-
-        .quantity-box .btn {
-            font-size: 12px;
-            padding: 4px 8px;
-        }
-
-        .quantity-box .form-control {
-            font-size: 12px;
-            width: 40px;
-        }
-
-        .accordion-button {
-            font-size: 14px;
-        }
-
-        .offer-box h5 {
-            font-size: 14px;
-        }
-
-        .offer-box p,
-        .offer-box ul li {
-            font-size: 12px;
-        }
-
-        .total-label {
-            font-size: 14px;
-        }
-
-        .total-amount {
-            font-size: 16px;
-        }
-
-        .checkout-btn {
-            font-size: 14px;
-            padding: 10px;
-        }
-    }
-</style>
 </head>
 
 <body>
@@ -702,7 +340,7 @@
                 <span class="total-label">Total:</span>
                 <span class="total-amount fw-bold">₹<span id="totalAmount">2797.90</span></span>
             </div>
-            <button class="checkout-btn w-100">Proceed to Checkout</button>
+          <a href="./page/CheckOutpage.html"> <button class="checkout-btn w-100">Proceed to Checkout</button></a> 
         </div>
     </div>
     <!-- Cart  -->
@@ -1047,12 +685,12 @@
     <!-- Product Slider -->
     <div class="product-slider">
         <!-- Product 1 -->
-        <div class="product-card">
+      <a href="./page/productDetail.html">  <div class="product-card">
             <i class="bi bi-heart wishlist-icon"></i>
             <img src="./image/pro1.webp" class="img-fluid" alt="Bag 1">
             <p class="mt-2 fw-bold">FloMotif Women's Work Bag</p>
             <p class="text-primary">₹1,999.00</p>
-        </div>
+        </div></a>
         
         <!-- Product 2 -->
         <div class="product-card">
@@ -1089,7 +727,7 @@
 
     <!-- View All Button -->
     <div class="view-all">
-        <button class="btn-Class px-4 viewAll">VIEW ALL <span class="bi bi-arrow-right"></span></button>
+    <a href="./page/product.html"> <button class="btn-Class px-4 viewAll">VIEW ALL <span class="bi bi-arrow-right"></span></button></a>   
     </div>
 </div>
 
@@ -1101,44 +739,46 @@
 <!-- video section  -->
 
 <div class="bdtop">
-    <div class="container mt-5 ">
-      
-    
+    <div class="container mt-5">
         <!-- Product Slider -->
         <div class="product-slider">
-            
-            <div class="product-card position-relative">
-                
-                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" mediatype="video" class="svelte-jk0m5r" jsonkey="LQpQ74Z2fP" issafari="false" isimagemedia="false" style="border-radius: 2px; object-fit: cover; object-position: center top; z-index: 1; border: 0px solid rgb(255, 255, 255); width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4"></video>
-              
-                <!-- <div class="vidImg position-absolute">
-                    <img src="../public/image/vidImg1.avif" alt="" width="100px" height="50px" class="img-fluid">
-                </div> -->
+            <div class="product-card">
+                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" class="svelte-jk0m5r" style="border-radius: 2px; object-fit: cover; object-position: center top; width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4" onclick="openPopup(this)"></video>
             </div>
             <div class="product-card">
-                
-                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" mediatype="video" class="svelte-jk0m5r" jsonkey="LQpQ74Z2fP" issafari="false" isimagemedia="false" style="border-radius: 2px; object-fit: cover; object-position: center top; z-index: 1; border: 0px solid rgb(255, 255, 255); width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4"></video>
-              
+                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" class="svelte-jk0m5r" style="border-radius: 2px; object-fit: cover; object-position: center top; width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4" onclick="openPopup(this)"></video>
             </div>
             <div class="product-card">
-                
-                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" mediatype="video" class="svelte-jk0m5r" jsonkey="LQpQ74Z2fP" issafari="false" isimagemedia="false" style="border-radius: 2px; object-fit: cover; object-position: center top; z-index: 1; border: 0px solid rgb(255, 255, 255); width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4"></video>
-              
+                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" class="svelte-jk0m5r" style="border-radius: 2px; object-fit: cover; object-position: center top; width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4" onclick="openPopup(this)"></video>
             </div>
             <div class="product-card">
-                
-                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" mediatype="video" class="svelte-jk0m5r" jsonkey="LQpQ74Z2fP" issafari="false" isimagemedia="false" style="border-radius: 2px; object-fit: cover; object-position: center top; z-index: 1; border: 0px solid rgb(255, 255, 255); width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4"></video>
-              
+                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" class="svelte-jk0m5r" style="border-radius: 2px; object-fit: cover; object-position: center top; width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4" onclick="openPopup(this)"></video>
             </div>
             <div class="product-card">
-                
-                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" mediatype="video" class="svelte-jk0m5r" jsonkey="LQpQ74Z2fP" issafari="false" isimagemedia="false" style="border-radius: 2px; object-fit: cover; object-position: center top; z-index: 1; border: 0px solid rgb(255, 255, 255); width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4"></video>
-              
+                <video preload="none" loop="true" autoplay="true" playsinline="true" muted="true" class="svelte-jk0m5r" style="border-radius: 2px; object-fit: cover; object-position: center top; width: 100%; height: 100%;" src="https://zouk.co.in/cdn/shop/files/quinn_qmrsobsuhma67sopqvcf6o0u.mp4" onclick="openPopup(this)"></video>
             </div>
-           
         </div>
-    
-       
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">Close</button>
+            <div class="popup-video">
+                <video id="popupVideo" controls autoplay loop muted style="width: 100%; border-radius: 10px;"></video>
+            </div>
+            <div class="popup-details">
+                <h2>Nawabi Couture OOO Sling Bag</h2>
+                <p>₹1,399</p>
+                <p>This is a proudly Indian and 100% PoTA approved sling bag – the perfect blend of style and functionality characterized by a distinctive shape and spacious interior. With its streamlined appearance, the bag serves as the go-to accessory for any occasion.</p>
+                <img src="./image/pro1.webp" alt="Product Image">
+                <!-- Add to Cart and Buy Now Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button class="btn-buy-now" onclick="buyNow()">Buy Now</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -1716,6 +1356,21 @@
         });
     
         window.onload = updateTotal;
+    </script>
+      <script>
+        // Function to open popup
+        function openPopup(video) {
+            const popup = document.getElementById('popup');
+            const popupVideo = document.getElementById('popupVideo');
+            popupVideo.src = video.src;
+            popup.style.display = 'flex';
+        }
+
+        // Function to close popup
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
     </script>
 </body>
 
